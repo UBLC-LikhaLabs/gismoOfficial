@@ -608,15 +608,15 @@ class OptimizedPipeline:
         if not text:
             return ""
         text = self.word_fixer.fix_text(text)
-        text = re.sub(r'###\s*(User|AI|System|Nova|Atlas):?', '', text)
-        text = re.sub(r'^(User|AI|System|Nova|Atlas):?\s*', '', text)
+        text = re.sub(r'###\s*(User|AI|System|Atlas):?', '', text)
+        text = re.sub(r'^(User|AI|System|Atlas):?\s*', '', text)
         text = re.sub(r'\s+', ' ', text).strip()
         return text
 
     async def stream_text(self, text):
         if global_state.is_shutting_down or global_state.is_interrupted or not text.strip():
             return
-        if any(m in text for m in ['###', 'User:', 'AI:', 'System:', 'Nova:', 'Atlas:']):
+        if any(m in text for m in ['###', 'User:', 'AI:', 'System:', 'Atlas:']):
             return
 
         self.sentence_buffer += text
