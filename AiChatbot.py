@@ -131,7 +131,7 @@ class KokoroTTSEngine:
         script_dir = os.path.dirname(os.path.abspath(__file__))
 
         # HuggingFace cache — absolute path (Windows safe)
-        HF_VOICES = r"C:\Users\tristhan\.cache\huggingface\hub\models--hexgrad--Kokoro-82M\snapshots\f3ff3571791e39611d31c381e3a41a3af07b4987\voices"
+        HF_VOICES = r"YOUR MODELS LOCATED"
         hf_candidates = [os.path.join(HF_VOICES, f"{voice_name}.pt")]
         # Also scan all snapshots dynamically in case model updates
         hf_cache_base = os.path.join(HF_VOICES, "..", "..")
